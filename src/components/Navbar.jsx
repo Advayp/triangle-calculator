@@ -11,8 +11,6 @@ export const Navbar = () => {
         position="sticky"
         as="header"
         borderBottomWidth={'1.5px'}
-        backgroundColor="rgba(255, 
-                255, 255, 0.8)"
         mb={'2'}
         justify="center"
       >
