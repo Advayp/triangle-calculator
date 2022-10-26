@@ -12,3 +12,6 @@ export const isValid = arrayFormat => {
     message: 'Valid',
   };
 };
+export function compareNumbers(a, b) {
+  return a - b;
+}
