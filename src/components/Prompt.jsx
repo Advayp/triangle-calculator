@@ -13,7 +13,7 @@ export const Prompt = ({ label, valueRef }) => {
           size="md"
           type="number"
           onChange={event => {
-            valueRef.current = event.target.value;
+            valueRef(parseFloat(event.target.value));
           }}
         ></Input>
       </HStack>
