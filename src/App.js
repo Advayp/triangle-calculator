@@ -1,13 +1,5 @@
-import React, { useState, useRef } from 'react';
-import {
-  ChakraProvider,
-  theme,
-  Box,
-  VStack,
-  Button,
-  Text,
-  Divider,
-} from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { ChakraProvider, theme, Box, VStack, Divider } from '@chakra-ui/react';
 import { Navbar } from './components/Navbar';
 import { Prompt } from './components/Prompt';
 import { LengthValidator } from './components/LengthValidator';

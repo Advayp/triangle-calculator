@@ -1,5 +1,5 @@
 export const isValid = arrayFormat => {
-  if (arrayFormat[0] <= 0 || arrayFormat[1] <= 0 || arrayFormat[2] <= 0) {
+  if (Array.prototype.some(el => el <= 0 || isNaN(el))) {
     return { value: false, message: 'Invalid: numbers must be positive' };
   }
 
