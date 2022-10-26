@@ -1,14 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Text } from '@chakra-ui/react';
+import { isValid } from '../utils';
 
-export const LengthValidator = ({
-  firstLength,
-  secondLength,
-  thirdLength,
-  validRef,
-}) => {
-  const message = useRef('Invalid');
-
+export const LengthValidator = ({ firstLength, secondLength, thirdLength }) => {
   const arrayFormat = [firstLength, secondLength, thirdLength].sort(
     compareNumbers
   );
@@ -17,27 +11,11 @@ export const LengthValidator = ({
     return a - b;
   }
 
-  const isValid = () => {
-    if (arrayFormat[0] <= 0 || arrayFormat[1] <= 0 || arrayFormat[2] <= 0) {
-      message.current = 'Invalid: the numbers must be positive';
-      validRef.current = false;
-      return false;
-    }
-
-    if (arrayFormat[0] + arrayFormat[1] <= arrayFormat[2]) {
-      message.current = 'Invalid numbers (triangle inequality)';
-      validRef.current = false;
-      return false;
-    }
-
-    message.current = 'Valid';
-    validRef.current = true;
-    return true;
-  };
+  const { value, message } = isValid(arrayFormat);
 
   return (
-    <Text fontSize="md" color={isValid() ? 'green' : 'red'}>
-      {message.current}
+    <Text fontSize="xl" color={value ? 'green' : 'red'}>
+      {message}
     </Text>
   );
 };
