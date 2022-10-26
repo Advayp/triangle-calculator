@@ -28,9 +28,8 @@ function App() {
           />
           <Button
             colorScheme={'telegram'}
-            onClick={() => {
-              console.log(valid.current);
-            }}
+            onClick={() => {}}
+            disabled={!valid.current}
           >
             Calculate Angles
           </Button>
