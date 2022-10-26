@@ -1,16 +1,23 @@
 import React, { useState, useRef } from 'react';
-import { ChakraProvider, theme, Box, VStack, Button } from '@chakra-ui/react';
+import {
+  ChakraProvider,
+  theme,
+  Box,
+  VStack,
+  Button,
+  Text,
+  Divider,
+} from '@chakra-ui/react';
 import { Navbar } from './components/Navbar';
 import { Prompt } from './components/Prompt';
 import { LengthValidator } from './components/LengthValidator';
+import { AngleCalculator } from './components/AngleCalculator';
 
 function App() {
   // probably not ideal
   const [firstLength, setFirstLength] = useState(0);
   const [secondLength, setSecondLength] = useState(0);
   const [thirdLength, setThirdLength] = useState(0);
-
-  const valid = useRef(false);
 
   return (
     <ChakraProvider theme={theme}>
@@ -24,15 +31,13 @@ function App() {
             firstLength={firstLength}
             secondLength={secondLength}
             thirdLength={thirdLength}
-            validRef={valid}
           />
-          <Button
-            colorScheme={'telegram'}
-            onClick={() => {}}
-            disabled={!valid.current}
-          >
-            Calculate Angles
-          </Button>
+          <Divider orientation="horizontal" maxW={'40vw'} />
+          <AngleCalculator
+            firstLength={firstLength}
+            secondLength={secondLength}
+            thirdLength={thirdLength}
+          />
         </VStack>
       </Box>
     </ChakraProvider>
